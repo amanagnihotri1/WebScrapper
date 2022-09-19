@@ -8,7 +8,7 @@ app.get("/",(req,res)=>
 {
     res.send("API is Working Successfully");
 })
-app.listen(process.env.PORT|| 5000,()=>
+app.listen(process.env.PORT || 5000,()=>
 {
-    console.log("backend server is up at port:3000");
+    console.log("backend server is up and working fine");
 })
