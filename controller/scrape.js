@@ -9,14 +9,13 @@ const scrape = async(req,res) => {
     }
  
   const result=await getResults(`https://twitter.com/search?q=${s}&src=typeahead_click&f=top`);
-  return res.status(200).json({
+  return res.status(200).send({
 
       result,
     status:"success" 
   })
-  } catch (err) {
+  }catch (err) {
     console.log(err);
-  
     return res.status(400).json({ status: err })
   }
 }

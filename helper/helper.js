@@ -9,8 +9,6 @@ async function getResults(url) {
   await page.waitForSelector(".css-1dbjc4n:nth-child(2) div:nth-child(1) > .css-1dbjc4n:nth-child(1) > .css-1dbjc4n:nth-child(1) > .css-1dbjc4n:nth-child(1) > .css-1dbjc4n:nth-child(1) > .css-1dbjc4n:nth-child(1) > .css-1dbjc4n:nth-child(1) > .css-1dbjc4n:nth-child(1) > .css-1dbjc4n:nth-child(2) > .css-1dbjc4n:nth-child(1)");
   const purl = await page.$$eval('article div[lang]', texts => texts.map(item => item.textContent));
   console.log(purl);
-
-
   const imgs = await page.$$eval('.css-1dbjc4n img[draggable]', imgs => imgs.map(img => img.getAttribute('src')));
   console.log(imgs);
   await browser.close();
