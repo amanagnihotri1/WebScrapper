@@ -1,8 +1,12 @@
 const puppeteer = require("puppeteer");
 async function getResults(url) {
   const browser = await puppeteer.launch({
-    headless: true,
-    slowMo: 1200
+    'args' : [
+      '--no-sandbox',
+      '--disable-setuid-sandbox'
+    ]
+    
+  //  executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
   });
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: 'networkidle2', timeout: 0 });
@@ -14,7 +18,5 @@ async function getResults(url) {
   await browser.close();
   return { imgs, purl };
 }
-
-
 module.exports = { getResults };
 
